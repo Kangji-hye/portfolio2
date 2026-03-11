@@ -197,11 +197,21 @@
   -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
 }
 
+/* orb 패럴랙스 컨테이너 */
+.hero-orbs {
+  position: absolute;
+  inset: 0;
+  --mx: 0;
+  --my: 0;
+}
+
 .hero-orb {
   position: absolute;
   border-radius: 50%;
   filter: blur(90px);
   animation: heroFloat 10s ease-in-out infinite;
+  will-change: translate;
+  transition: translate 0.18s ease-out;
 }
 
 .hero-orb-1 {
@@ -211,6 +221,8 @@
   top: -120px;
   left: -80px;
   animation-delay: 0s;
+  /* translate는 animation의 transform과 독립적으로 동작 */
+  translate: calc(var(--mx, 0) * -22px) calc(var(--my, 0) * -18px);
 }
 
 .hero-orb-2 {
@@ -220,6 +232,7 @@
   bottom: -180px;
   right: -100px;
   animation-delay: -5s;
+  translate: calc(var(--mx, 0) * 28px) calc(var(--my, 0) * 22px);
 }
 
 .hero-orb-3 {
@@ -230,12 +243,28 @@
   left: 50%;
   animation-delay: -2.5s;
   animation-duration: 14s;
+  translate: calc(var(--mx, 0) * 14px) calc(var(--my, 0) * 10px);
 }
 
 @keyframes heroFloat {
   0%, 100% { transform: translateY(0) scale(1); }
   50% { transform: translateY(-35px) scale(1.04); }
 }
+
+/* ─── Hero 입장 애니메이션 ─── */
+.hi-anim {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.hero-mounted .hi-anim { opacity: 1; transform: translateY(0); }
+.hero-mounted .hi-1 { transition-delay: 0.05s; }
+.hero-mounted .hi-2 { transition-delay: 0.18s; }
+.hero-mounted .hi-3 { transition-delay: 0.32s; }
+.hero-mounted .hi-4 { transition-delay: 0.45s; }
+.hero-mounted .hi-5 { transition-delay: 0.58s; }
+.hero-mounted .hi-6 { transition-delay: 0.70s; }
 
 .hero-content {
   position: relative;
@@ -266,7 +295,7 @@
 
 .hero-name {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(3.5rem, 9vw, 7rem);
+  font-size: clamp(2.2rem, 5.5vw, 4.2rem);
   font-weight: 700;
   line-height: 1.0;
   letter-spacing: -0.04em;
@@ -274,6 +303,21 @@
   color: var(--white);
   position: relative;
   display: inline-block;
+  transition: color 0.3s;
+}
+
+/* 이름 호버 글로우 강화 */
+.hero-name-hoverable:hover {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-name-hoverable:hover + .hero-name-glow {
+  opacity: 0.65;
+  filter: blur(28px);
+  transform: translateY(10px) scale(1.06);
 }
 
 .hero-name-glow {
@@ -287,6 +331,7 @@
   opacity: 0.3;
   z-index: -1;
   transform: translateY(6px) scale(1.02);
+  transition: opacity 0.3s, filter 0.3s, transform 0.3s;
 }
 
 .hero-role-wrap {
@@ -421,6 +466,7 @@
   transform: translateY(-2px);
 }
 
+/* ─── 스크롤 힌트 — 마우스 휠 아이콘 ─── */
 .scroll-hint {
   position: absolute;
   bottom: 40px;
@@ -429,23 +475,43 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   color: var(--muted);
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+  animation: scrollFadeIn 1s ease 1.4s both;
 }
 
-.scroll-hint-line {
-  width: 1px;
-  height: 40px;
-  background: linear-gradient(to bottom, var(--muted), transparent);
-  animation: scrollPulse 2s ease-in-out infinite;
+@keyframes scrollFadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
-@keyframes scrollPulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
+.scroll-mouse {
+  width: 22px;
+  height: 34px;
+  border: 1.5px solid var(--muted);
+  border-radius: 11px;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+  opacity: 0.6;
+}
+
+.scroll-wheel {
+  width: 3px;
+  height: 6px;
+  background: var(--cyan);
+  border-radius: 2px;
+  animation: wheelScroll 1.8s ease-in-out infinite;
+}
+
+@keyframes wheelScroll {
+  0%   { transform: translateY(0); opacity: 1; }
+  60%  { transform: translateY(10px); opacity: 0; }
+  61%  { transform: translateY(0); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 
 /* ─── About ─────────────────────────────────────────────────── */

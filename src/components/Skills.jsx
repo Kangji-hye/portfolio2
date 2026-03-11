@@ -16,10 +16,10 @@ const skills = [
 ]
 
 const techTags = [
-  'HTML5', 'CSS3', 'CSS Grid', 'Flexbox', 'SCSS',
+  'HTML5', 'CSS3', 'CSS Grid',
   'JavaScript', 'React', 'Vite', '반응형 웹', '크로스브라우징',
   '웹표준', '웹접근성', 'SEO', 'Photoshop', 'Google Analytics',
-  'Splunk UI', 'GitHub', 'PowerPoint', 'SNS 마케팅', '콘텐츠 기획',
+  'Splunk UI', 'GitHub', 'PowerPoint', 'Excel', 'SNS 마케팅', '콘텐츠 기획',
 ]
 
 export default function Skills() {
