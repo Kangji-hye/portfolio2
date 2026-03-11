@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 
-const roles = ['웹 퍼블리셔', 'UI·UX 디자이너', '프론트엔드 개발자', '웹 디자이너']
+const roles = ['웹 퍼블리셔', 'UI·UX 디자이너', '웹 디자이너']
 
 function HeroStat({ to, suffix, label, delay = 0 }) {
   const [val, setVal] = useState(0)
@@ -209,7 +209,7 @@ export default function Hero() {
         <p className="hero-desc hi-anim hi-4">
           웹 기획부터 디자인, 퍼블리싱, 마케팅까지 — 웹사이트 운영의
           전 과정을 경험한 <strong style={{ color: 'var(--white)', fontWeight: 700 }}>17년 경력</strong>의
-          멀티플레이어입니다. 현재 React 기반 프론트엔드 개발자로 성장 중입니다.
+          멀티플레이어입니다. 현재 React 기반 프론트엔드 개발자 과정을 수료중이며 웹 크리에이터로 성장 중입니다.
         </p>
 
         <div className="hero-stats hi-anim hi-5">
