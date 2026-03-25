@@ -2,11 +2,19 @@ import { useEffect } from 'react'
 
 const experiences = [
   {
-    period: '2025.09 — 2026.03 (예정)',
+    period: '2025.09 — 현재',
+    duration: '진행 중',
+    company: '바이브코딩',
+    role: 'AI 협업 개발 (ChatGPT × Claude Code)',
+    desc: 'ChatGPT와 Claude Code를 활용한 바이브코딩으로 다양한 프로젝트 제작. 초등 스터디 플레너, 오목 및 바둑대전 등 각종 미니 게임, 책스캐너(인근 도서관 대출 여부 판별), 3D 종이접기, 데일리 로봇 뉴스, 영어번역기 등.',
+    tags: ['ChatGPT', 'Claude Code', '바이브코딩', 'AI협업', 'React', 'Vite'],
+  },
+  {
+    period: '2025.09 — 2026.03',
     duration: '7개월',
     company: 'KT Cloud × goorm',
-    role: 'DEEP DIVE 프론트엔드 개발자 과정 6회차',
-    desc: 'React 기반 프론트엔드 개발자 과정 수료 예정. 바이브 코딩(AI 협업 개발)으로 초등 스터디 플래너 제작.',
+    role: 'DEEP DIVE 프론트엔드 개발자 과정 6회차 수료',
+    desc: 'React 기반 프론트엔드 개발자 과정 수료. 바이브 코딩(AI 협업 개발)으로 초등 스터디 플래너 제작.',
     tags: ['React', 'Vite', '바이브코딩', 'JavaScript', '프론트엔드'],
     isHighlight: true,
     project: {
@@ -110,7 +118,7 @@ export default function Experience() {
               <div className={`timeline-dot${exp.isHighlight ? ' dot-highlight' : ''}`} />
               <div className={`timeline-card${exp.isHighlight ? ' featured' : ''}`}>
                 {exp.isHighlight && (
-                  <span className="badge-current">🔥 현재 수강 중</span>
+                  <span className="badge-current">✅ 수료 완료</span>
                 )}
                 <div className="timeline-meta">
                   <span className="timeline-period">{exp.period}</span>
