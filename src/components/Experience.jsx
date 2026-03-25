@@ -2,12 +2,16 @@ import { useEffect } from 'react'
 
 const experiences = [
   {
-    period: '2025.09 — 현재',
+    period: '2026.03 — 현재',
     duration: '진행 중',
     company: '바이브코딩',
-    role: 'AI 협업 개발 (ChatGPT × Claude Code)',
-    desc: 'ChatGPT와 Claude Code를 활용한 바이브코딩으로 다양한 프로젝트 제작. 초등 스터디 플레너, 오목 및 바둑대전 등 각종 미니 게임, 책스캐너(인근 도서관 대출 여부 판별), 3D 종이접기, 데일리 로봇 뉴스, 영어번역기 등.',
+    role: 'AI 협업 개발 (ChatGPT, Claude Code)',
+    desc: 'ChatGPT와 Claude Code를 활용한 바이브코딩으로 다양한 프로젝트 제작. 내 아이를 위한 초등 스터디 플래너, 오목 및 바둑대전 등 각종 미니 게임, 영어번역기, 3D 종이접기, 남편을 위한 데일리 로봇 뉴스, 북스캐너(인근 도서관 대출 여부 판별) 등.',
     tags: ['ChatGPT', 'Claude Code', '바이브코딩', 'AI협업', 'React', 'Vite'],
+    projects: [
+      { label: '북스캐너 (모바일용)', url: 'https://books-tan-three.vercel.app/' },
+      { label: '초등 스터디 플래너', url: 'https://studyplanner-tau.vercel.app/' },
+    ],
   },
   {
     period: '2025.09 — 2026.03',
@@ -17,10 +21,6 @@ const experiences = [
     desc: 'React 기반 프론트엔드 개발자 과정 수료. 바이브 코딩(AI 협업 개발)으로 초등 스터디 플래너 제작.',
     tags: ['React', 'Vite', '바이브코딩', 'JavaScript', '프론트엔드'],
     isHighlight: true,
-    project: {
-      label: '📎 스터디 플래너 바로가기',
-      url: 'https://studyplanner-tau.vercel.app/',
-    },
   },
   {
     period: '2016.05 — 2018.10',
@@ -127,15 +127,20 @@ export default function Experience() {
                 <p className="timeline-company">{exp.company}</p>
                 <p className="timeline-role">{exp.role}</p>
                 <p className="timeline-desc">{exp.desc}</p>
-                {exp.project && (
-                  <a
-                    className="exp-project-link"
-                    href={exp.project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {exp.project.label} →
-                  </a>
+                {exp.projects && (
+                  <div className="exp-project-links">
+                    {exp.projects.map(p => (
+                      <a
+                        key={p.url}
+                        className="exp-project-link"
+                        href={p.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {p.label} →
+                      </a>
+                    ))}
+                  </div>
                 )}
                 <div className="timeline-tags">
                   {exp.tags.map(tag => (

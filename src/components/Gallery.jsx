@@ -2,15 +2,6 @@ import { useState, useEffect, useCallback } from 'react'
 import Lightbox from './Lightbox'
 
 const galleryItems = [
-  { src: '/images/works/vibe-1.png',      title: '초등 스터디 플레너',       category: '바이브코딩' },
-  { src: '/images/works/vibe-1-2.png',    title: '초등 스터디 플레너 (2)',    category: '바이브코딩' },
-  { src: '/images/works/vibe-2.png',      title: '오목 & 바둑대전 미니게임', category: '바이브코딩' },
-  { src: '/images/works/vibe-2-2.png',    title: '오목 & 바둑대전 미니게임 (2)', category: '바이브코딩' },
-  { src: '/images/works/vibe-3.png',      title: '책스캐너',               category: '바이브코딩' },
-  { src: '/images/works/vibe-3-2.png',    title: '책스캐너 (2)',            category: '바이브코딩' },
-  { src: '/images/works/vibe-4.png',      title: '3D 종이접기',            category: '바이브코딩' },
-  { src: '/images/works/vibe-4-2.png',    title: '3D 종이접기 (2)',        category: '바이브코딩' },
-  { src: '/images/works/vibe-5.png',      title: '데일리 로봇 뉴스',       category: '바이브코딩' },
   { src: '/images/works/yongin-1.jpg',    title: '용인대학교 학사시스템', category: '시스템 UI' },
   { src: '/images/works/yongin-2.jpg',    title: '용인대학교 모바일',     category: '시스템 UI' },
   { src: '/images/works/ostem1.png',      title: 'OSSTEM 업무환경시스템', category: '시스템 UI' },
@@ -29,6 +20,15 @@ const galleryItems = [
   { src: '/images/works/domestic-6.jpg',  title: 'TYM Bathco',           category: '기업 홈페이지' },
   { src: '/images/works/domestic-7.jpg',  title: 'SAMICK',               category: '기업 홈페이지' },
   { src: '/images/works/samsung-1.jpg',   title: 'Samsung Medison 배너', category: '광고·디자인' },
+  { src: '/images/works/vibe-1.png',      title: '초등 스터디 플래너',          category: '바이브코딩' },
+  { src: '/images/works/vibe-1-2.png',    title: '초등 스터디 플래너 (2)',       category: '바이브코딩' },
+  { src: '/images/works/vibe-2.png',      title: '오목 & 바둑대전 미니게임',    category: '바이브코딩' },
+  { src: '/images/works/vibe-2-2.png',    title: '오목 & 바둑대전 미니게임 (2)', category: '바이브코딩' },
+  { src: '/images/works/vibe-3.png',      title: '북스캐너',                   category: '바이브코딩' },
+  { src: '/images/works/vibe-3-2.png',    title: '북스캐너 (2)',               category: '바이브코딩' },
+  { src: '/images/works/vibe-4.png',      title: '3D 종이접기',               category: '바이브코딩' },
+  { src: '/images/works/vibe-4-2.png',    title: '3D 종이접기 (2)',           category: '바이브코딩' },
+  { src: '/images/works/vibe-5.png',      title: '데일리 로봇 뉴스',           category: '바이브코딩' },
 ]
 
 const allSrcs = galleryItems.map(g => g.src)

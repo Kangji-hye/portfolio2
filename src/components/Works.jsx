@@ -10,7 +10,6 @@ const projects = [
     year: '2026',
     desc: '바이브 코딩(AI 협업 개발)으로 제작한 React 기반 초등학생 학습 관리 플래너. Vite + React 구성.',
     tags: ['React', 'Vite', '바이브코딩', 'JavaScript'],
-    link: 'https://studyplanner-tau.vercel.app/',
   },
   {
     category: '시스템 UI',
